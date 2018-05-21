@@ -45,9 +45,14 @@ namespace FaceBot.Dialogs
             {
                 Usuario = new Persona() { Nombre = EntidadNombre.Entity };
 
-                if (result.TryFindEntity("Edad", out EntidadEdad))
+                if (result.TryFindEntity("builtin.age", out EntidadEdad))
                 {
-                    Usuario.Edad = int.Parse(EntidadEdad.Entity);
+                    var edad = 0;
+                    var cadena = EntidadEdad.Entity;
+                    var datos = cadena.Split(' ');
+
+                    int.TryParse(datos[0], out edad);
+                    Usuario.Edad = edad;
                     SolicitarEdad(context, null);
                 }
                 else

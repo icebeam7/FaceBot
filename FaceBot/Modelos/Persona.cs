@@ -1,5 +1,4 @@
-﻿using Microsoft.Bot.Builder.FormFlow;
-using System;
+﻿using System;
 
 namespace FaceBot.Modelos
 {
